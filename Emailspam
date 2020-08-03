@@ -1,0 +1,11 @@
+import pandas as pd
+import pyforest
+k=pd.read_csv(r'C:\Users\User\Desktop\Notes for AI\DataSets\emails.csv')
+k.columns
+k.head(10)
+k.isna().sum()
+rom sklearn.naive_bayes import MultinomialNB
+mnb = MultinomialNB(alpha=1.9)
+mnb.fit(train_x,train_y)
+y_pred1 = mnb.predict(test_x)
+print("Accuracy Score for Naive Bayes : ", accuracy_score(y_pred1,test_y))
