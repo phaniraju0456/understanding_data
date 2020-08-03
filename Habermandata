@@ -1,0 +1,27 @@
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sb
+columns=['age','year','positive_axillary_nodes','survival_status']
+habermandata=pd.read_csv(r'C:\Users\User\Desktop\Notes for AI\Assignmen
+t1\haberman.csv',header=None,names=columns)
+columns=['age','year','positive_axillary_nodes','survival_status']
+habermandata=pd.read_csv(r'C:\Users\User\Desktop\Notes for AI\Assignmen
+t1\haberman.csv',header=None,names=columns)
+#2Dscatter-plot:
+habermandata.plot(kind='bar',x='age',y='positive_axillary_nodes')
+habermandata.plot(kind='scatter',x='age',y='positive_axillary_nodes')
+habermandata.plot(kind='scatter',x='positive_axillary_nodes',y='age')
+#2D-scatter plot with color-coding:
+#here sb refers to seaborn
+sb.set_style('whitegrid')
+sb.FacetGrid(habermandata,hue='survival_status',size=8)\
+ .map(plt.scatter,'age','positive_axillary_nodes')\
+ .add_legend();
+plt.title("2-D scatter plot with colorcoding")
+plt.show()
+#using box plots and whiskers
+sb.boxplot(x='survival_status',y='positive_axillary_nodes',hue='surviva
+l_status',data=habermandata)
+plt.title('Boxplots and whiskers')
+plt.show()
